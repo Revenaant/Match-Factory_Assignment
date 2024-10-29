@@ -8,6 +8,7 @@ namespace Revenaant.Project
     public class Interactable : MonoBehaviour
     {
         private Rigidbody body;
+        public Rigidbody Body => body;
 
         private void Awake()
         {
@@ -25,7 +26,12 @@ namespace Revenaant.Project
             body.isKinematic = true;
             body.detectCollisions = false;
 
-            body.DOMoveZ(-10, 1);
+            // TODO use events
+            MatchRow matchRow = FindObjectOfType<MatchRow>();
+            if (matchRow != null)
+            {
+                matchRow.AddItem(this);
+            }
         }
     }
 }
