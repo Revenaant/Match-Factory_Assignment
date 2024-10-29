@@ -1,0 +1,17 @@
+{
+    "name": "MatchFactory",
+    "rootNamespace": "Revenaant.Project",
+    "references": [
+        "GUID:9fb0e1751ee9b9e4084422a6b1e18bd3",
+        "GUID:98fe75456a5a35d4181d170fc0238fb8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
