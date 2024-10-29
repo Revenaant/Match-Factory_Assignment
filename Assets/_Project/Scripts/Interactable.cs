@@ -1,23 +1,31 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-[SelectionBase]
-public class Interactable : MonoBehaviour, IPointerClickHandler
+namespace Revenaant.Project
 {
-    public void OnPointerClick(PointerEventData eventData)
+    [SelectionBase]
+    public class Interactable : MonoBehaviour
     {
-        Debug.LogError("Ayy you clicky on me");
-    }
+        private Rigidbody body;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        private void Awake()
+        {
+            body = GetComponent<Rigidbody>();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
+
+        public void Interact()
+        {
+            body.isKinematic = true;
+            body.detectCollisions = false;
+
+            body.DOMoveZ(-10, 1);
+        }
     }
 }
