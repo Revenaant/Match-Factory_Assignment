@@ -3,9 +3,10 @@
     "rootNamespace": "Revenaant.Project",
     "references": [
         "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
         "GUID:9fb0e1751ee9b9e4084422a6b1e18bd3",
         "GUID:98fe75456a5a35d4181d170fc0238fb8",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:87bd4035a89997647b487f7537438f26"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
