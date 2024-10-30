@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237a3f0d6517beb42acc7f29f98fd2de, type: 3}
+  m_Name: TestLevelConfig
+  m_EditorClassIdentifier: 
+  level: 1
+  itemCount: 200
+  goals:
+  - type:
+      matchType: 0
+      itemPrefab: {fileID: 8511607778195411836, guid: 2787a9a0fa6547443aa2a18d972918c3,
+        type: 3}
+    itemCount: 12
+  - type:
+      matchType: 1
+      itemPrefab: {fileID: 593766323325293866, guid: 8d49cd4ebc3acd644aa503381291edf8,
+        type: 3}
+    itemCount: 15
+  - type:
+      matchType: 2
+      itemPrefab: {fileID: 526619082878819628, guid: dc3899047fdada24bb2867b62da44ee7,
+        type: 3}
+    itemCount: 12
+  spawnableItems:
+  - matchType: 0
+    itemPrefab: {fileID: 8511607778195411836, guid: 2787a9a0fa6547443aa2a18d972918c3,
+      type: 3}
+  - matchType: 1
+    itemPrefab: {fileID: 593766323325293866, guid: 8d49cd4ebc3acd644aa503381291edf8,
+      type: 3}
+  - matchType: 2
+    itemPrefab: {fileID: 526619082878819628, guid: dc3899047fdada24bb2867b62da44ee7,
+      type: 3}
