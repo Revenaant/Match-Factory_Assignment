@@ -1,5 +1,4 @@
-﻿using Codice.CM.Common.Serialization;
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;

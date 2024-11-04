@@ -54,6 +54,7 @@ namespace Revenaant.Project
             if (!TryCheckMatches() && isOnLastSlot)
             {
                 TriggerGameLost();
+                // TODO add items to itemsSwipedMessage, send it
                 return;
             }
 

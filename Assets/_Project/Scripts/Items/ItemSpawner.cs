@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using Revenaant.Project.Messages;
+using System.Diagnostics;
 
 namespace Revenaant.Project
 {
@@ -12,14 +13,13 @@ namespace Revenaant.Project
         [SerializeField] private LevelConfig config;
         [SerializeField] private VisualMatcher baseItemPrefab;
 
-        private Collider area;
+        [SerializeField] private Collider volume;
+        [SerializeField] private Collider newItemsVolume;
+
         private ItemAssetLoader loader;
 
         private void Awake()
         {
-            area = transform.GetComponentInChildren<Collider>();
-            area.isTrigger = true;
-
             loader = new ItemAssetLoader();
         }
 
@@ -36,10 +36,13 @@ namespace Revenaant.Project
 
             SpawnItems();
             CentralMessageBus.Instance.Raise(new ItemsSpawnedMessage());
+            CentralMessageBus.Instance.SubscribeTo<ItemsSwipedMessage>(ProcessItemsSwipedMessage);
         }
 
         private void OnDestroy()
         {
+            CentralMessageBus.Instance.UnsubscribeFrom<ItemsSwipedMessage>(ProcessItemsSwipedMessage);
+
             // TODO don't unload if level restarts
             loader.UnloadAllItems();
         }
@@ -54,7 +57,7 @@ namespace Revenaant.Project
                 GameObject goalObject = spawnablePrefabs.Single(asset => asset.name == itemGoal.VisualType.name);
                 for (int i = 0; i < itemGoal.Count; i++)
                 {
-                    SpawnSceneObject(goalObject);
+                    SpawnSceneObject(goalObject, volume);
                 }
                 itemsToSpawn -= itemGoal.Count;
 
@@ -66,28 +69,38 @@ namespace Revenaant.Project
                 int randomVisual = Random.Range(0, loader.ItemAssets.Count);
                 for (int i = 0; i < config.MatchTarget; i++)
                 {
-                    SpawnSceneObject(loader.ItemAssets[randomVisual]);
+                    SpawnSceneObject(loader.ItemAssets[randomVisual], volume);
                 }
                 itemsToSpawn -= config.MatchTarget;
             }
         }
 
-        private void SpawnSceneObject(GameObject visual)
+        private void SpawnSceneObject(GameObject visual, Collider volume)
         {
-            Vector3 position = GetRandomPositionInArea();
+            Vector3 position = GetRandomPositionInVolume(volume);
             VisualMatcher spawnedItem = Instantiate(baseItemPrefab, position, Quaternion.identity, transform);
             spawnedItem.AddVisual(visual);
         }
 
-        private Vector3 GetRandomPositionInArea()
+        private Vector3 GetRandomPositionInVolume(Collider volume)
         {
-            Bounds bounds = area.bounds;
+            Bounds bounds = volume.bounds;
 
             Vector3 randomPoint = bounds.center;
             randomPoint.x += Random.Range(-bounds.extents.x, bounds.extents.x);
             randomPoint.y += Random.Range(-bounds.extents.y, bounds.extents.y);
             randomPoint.z += Random.Range(-bounds.extents.z, bounds.extents.z);
             return randomPoint;
+        }
+
+        private void ProcessItemsSwipedMessage(ref ItemsSwipedMessage eventData)
+        {
+            SpawnMultipliedObjects();
+        }
+
+        private void SpawnMultipliedObjects()
+        {
+            //SpawnSceneObject(, newItemsVolume);
         }
     }
 }
