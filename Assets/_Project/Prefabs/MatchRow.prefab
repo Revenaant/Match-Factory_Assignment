@@ -41,13 +41,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1099226719894278034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61f7977d1a1313745be6dc3eb3125209, type: 3}
+  m_Script: {fileID: 11500000, guid: 00d0f8b9e25447e4eb81c47d998ef57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotPrefab: {fileID: 3576583117359182770, guid: c7232d0c5a1547e46b381a6be3f9c299,
+  config: {fileID: 11400000, guid: e9396dc4237a1af4f8bf2e01d94180a8, type: 2}
+  slotPrefab: {fileID: 7389438534404531202, guid: c7232d0c5a1547e46b381a6be3f9c299,
     type: 3}
   matchTarget: 3
   slotCount: 7
-  slotSpacing: 0.75
+  slotSpacing: 0.7
   slotAngle: 85
-  slotScale: 0.65
+  slotScale: 0.6

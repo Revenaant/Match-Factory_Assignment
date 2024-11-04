@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 243474c517b267041a790785183ecf75
+  m_SerializeEntries:
+  - m_GUID: 866f2b5024daac549b817e647f9db50a
+    m_Address: Assets/_Project/Models/Prototyping
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: eb202cfff01ff3b4781697ecfd3852ed
+    m_Address: Assets/FREE Food Pack/Prefabs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Food
+  - m_GUID: babbb50d70db63f49bf48b67f5c23e65
+    m_Address: Assets/_Project/Prefabs/Items/Boats
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Boats
+  - m_GUID: 3ef97459a15e4f74cb39e495fd5227e9
+    m_Address: Assets/_Project/Prefabs/Items/Cars
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cars
+  - m_GUID: a2a06434d0c4c964d952722a2318855b
+    m_Address: Assets/_Project/Prefabs/Items/Food
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Food
+  - m_GUID: 61c5dd2a35a9c51408899f55660c0ebe
+    m_Address: Assets/_Project/Prefabs/Items/Graybox
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 30535e461ae89544eb4c7592ae6d0bb2, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: cacd9afda09366445a57fb64c663e722, type: 2}
+    - {fileID: 11400000, guid: 972755846bf079d45bc14db44778692f, type: 2}

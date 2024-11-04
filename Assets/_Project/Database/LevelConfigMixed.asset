@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237a3f0d6517beb42acc7f29f98fd2de, type: 3}
+  m_Name: LevelConfigMixed
+  m_EditorClassIdentifier: 
+  levelId: 5
+  itemCount: 300
+  matchTarget: 3
+  goals:
+  - visualType: {fileID: 5042902821612230527, guid: d6016f2c5727c2d468d310c924aaedf6,
+      type: 3}
+    itemCount: 12
+  - visualType: {fileID: 1000011322177112, guid: 4f544c14cf326b843a5f07e7de41640e,
+      type: 3}
+    itemCount: 15
+  - visualType: {fileID: 1000010528404258, guid: b7d70d80ddd390f41a1bdde5957f74f0,
+      type: 3}
+    itemCount: 12
+  itemThemes:
+  - Food
+  - Boats
+  - Cars

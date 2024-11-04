@@ -18,23 +18,29 @@ namespace Revenaant.Project
         public override void Initialize()
         {
             base.Initialize();
-            playButton.EvtClicked += OnPlayClicked;
-            optionsButton.EvtClicked += OnOptionsClicked;
-            storeButton.EvtClicked += OnStoreClicked;
+            playButton.ClickedEvent += OnPlayClicked;
+            optionsButton.ClickedEvent += OnOptionsClicked;
+            storeButton.ClickedEvent += OnStoreClicked;
 
             SetInteractability(true);
+            LevelConfigProvider.InitializeProvider();
+
+            // Hacky fixing a stuttering issue on Android
+            // https://www.reddit.com/r/Unity3D/comments/sbfppu/psa_for_android_frame_stuttering/
+            Application.targetFrameRate = 61;
         }
 
         public override void Uninitialize()
         {
             base.Uninitialize();
-            playButton.EvtClicked -= OnPlayClicked;
-            optionsButton.EvtClicked -= OnOptionsClicked;
-            storeButton.EvtClicked -= OnStoreClicked;
+            playButton.ClickedEvent -= OnPlayClicked;
+            optionsButton.ClickedEvent -= OnOptionsClicked;
+            storeButton.ClickedEvent -= OnStoreClicked;
         }
 
         private void OnPlayClicked()
         {
+            LevelConfigProvider.Instance.RandomizeLevel();
             SceneManager.LoadScene(gameplayScene.ScenePath, LoadSceneMode.Single);
         }
 

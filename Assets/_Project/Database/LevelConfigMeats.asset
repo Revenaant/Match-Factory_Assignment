@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237a3f0d6517beb42acc7f29f98fd2de, type: 3}
+  m_Name: LevelConfigMeats
+  m_EditorClassIdentifier: 
+  levelId: 1
+  itemCount: 300
+  matchTarget: 3
+  goals:
+  - visualType: {fileID: 1000011448446114, guid: 8155176e03f33f44884efb0dd767197c,
+      type: 3}
+    itemCount: 15
+  - visualType: {fileID: 1000013939694586, guid: 180079041c49091489282ea6ecb31fbe,
+      type: 3}
+    itemCount: 15
+  itemThemes:
+  - Food

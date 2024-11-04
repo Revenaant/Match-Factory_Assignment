@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7595094474783901725}
   - component: {fileID: 5359828480817639709}
   - component: {fileID: 4077538921720232552}
+  - component: {fileID: 4047879328060872992}
   m_Layer: 0
   m_Name: SceneObject
   m_TagString: Untagged
@@ -77,7 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2764de5c8724c746bfd3996abd7ea43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 1c15ced76cf17d2499ac71120bf9d098, type: 2}
+  highlighter: {fileID: 4047879328060872992}
+  visualMatcher: {fileID: 4077538921720232552}
 --- !u!114 &4077538921720232552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,10 +89,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 7323057466503393718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d214f7947a22ea64fb48c4eadb6557b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7b259397924d942bf5cae9df5ae499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  matchType: 0
+  visualsPivot: {fileID: 6427821453280368789}
+  highlighter: {fileID: 4047879328060872992}
+--- !u!114 &4047879328060872992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323057466503393718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a64c37fa073654995251c4b27b086c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 1c15ced76cf17d2499ac71120bf9d098, type: 2}
 --- !u!1 &8249972204651059401
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,11 +130,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8249972204651059401}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.37940952, y: 0.9159757, z: -0.12059045, w: 0.049950197}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6647142885436662364}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 180, z: 45}
