@@ -17,7 +17,7 @@ namespace Revenaant.Project
 
         public void ToggleHighlight(bool value)
         {
-            if (highlightInstance == null)
+            if (highlightInstance == null || transform == null)
                 return;
 
             transform.localScale = Vector3.one * (value ? 1.15f : 1f);

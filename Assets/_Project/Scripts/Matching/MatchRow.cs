@@ -53,8 +53,21 @@ namespace Revenaant.Project
 
             if (!TryCheckMatches() && isOnLastSlot)
             {
-                TriggerGameLost();
-                // TODO add items to itemsSwipedMessage, send it
+                List<GameObject> heldItems = new List<GameObject>();
+                for (int i = matchSlots.Count - 1; i >= 0; i--)
+                {
+                    MatchSlot slot = matchSlots[i];
+                    heldItems.Add(slot.HeldItem.MatchObjectPrefab);
+
+                    // TODO animation to slide and then back.
+
+                    slot.DestroyHeldItem();
+                }
+
+                CentralMessageBus.Instance.Raise(new ItemsSwipedMessage(heldItems));
+
+                matchSlots[^1].HideWarning();
+                isOnLastSlot = false;
                 return;
             }
 
@@ -64,15 +77,6 @@ namespace Revenaant.Project
 
         private void InsertItem(VisualMatcher item)
         {
-            if (TryFindMatchingSlot(item, out int matchingIndex) && matchSlots.Any(x => x.IsEmpty))
-            {
-                int index = matchingIndex + 1;
-
-                ShiftItems(index, 1);
-                matchSlots[index].SetHeldItem(item);
-                return;
-            }
-            
             emptySlotIndexes.Clear();
             for (int i = 0; i < matchSlots.Count; i++)
             {
@@ -80,14 +84,21 @@ namespace Revenaant.Project
                     emptySlotIndexes.Add(i);
             }
 
-            if (emptySlotIndexes.Count > 0)
+            if (emptySlotIndexes.Count == 2)
+                matchSlots[^1].ShowWarning();
+            else if (emptySlotIndexes.Count <= 1)
+                isOnLastSlot = true;
+
+            if (TryFindMatchingSlot(item, out int matchingIndex) && matchSlots.Any(x => x.IsEmpty))
+            {
+                int index = matchingIndex + 1;
+
+                ShiftItems(index, 1);
+                matchSlots[index].SetHeldItem(item);
+            }
+            else
             {
                 matchSlots[emptySlotIndexes.First()].SetHeldItem(item);
-
-                if (emptySlotIndexes.Count == 2)
-                    matchSlots[^1].ShowWarning();
-                else if (emptySlotIndexes.Count == 1)
-                    isOnLastSlot = true;
             }
         }
 

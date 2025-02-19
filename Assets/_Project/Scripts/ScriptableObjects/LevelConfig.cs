@@ -13,6 +13,7 @@ namespace Revenaant.Project
         [SerializeField] private int levelId = 0;
         [SerializeField] private int itemCount = 200;
         [SerializeField] private int matchTarget = 3;
+        [SerializeField] private int lives = 3;
         [SerializeField] private List<ItemTypeToCount> goals;
 
         [Header("Addressable labels to load")]
@@ -21,6 +22,7 @@ namespace Revenaant.Project
         public int LevelID => levelId;
         public int ItemCount => itemCount;
         public int MatchTarget => matchTarget;
+        public int Lives => lives;
         public List<ItemTypeToCount> Goals => goals;
         public List<string> SpawnableThemes => itemThemes;
     }

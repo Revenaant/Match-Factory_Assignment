@@ -3,7 +3,8 @@
     public enum GameOverType
     {
         OutOfTime,
-        OutOfMoves
+        OutOfMoves,
+        OutOfLives
     }
 
     public class GameOverMessage : IMessage

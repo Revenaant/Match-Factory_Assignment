@@ -57,6 +57,12 @@ namespace Revenaant.Project
             transformSequence.Play();
         }
 
+        public void PerformMatch()
+        {
+            // TODO wait on sequence and trigger match animation before destroying.
+            DestroyHeldItem();
+        }
+
         public void ClearHeldItem()
         {
             // TODO wait for sequence to complete (or start another, but do clear the ref).
@@ -67,9 +73,8 @@ namespace Revenaant.Project
             heldItem = null;
         }
 
-        public void PerformMatch()
+        public void DestroyHeldItem()
         {
-            // TODO wait on sequence and trigger match animation before destroying.
             transformSequence.Kill();
             heldItem.transform.DOKill();
             ResetBasePosition();

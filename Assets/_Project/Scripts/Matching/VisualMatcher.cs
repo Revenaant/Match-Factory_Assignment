@@ -13,12 +13,15 @@ namespace Revenaant.Project
         [SerializeField] private Highlighter highlighter;
 
         private Guid matchID;
+        private GameObject matchObjectPrefab;
         
         public Guid MatchID => matchID;
+        public GameObject MatchObjectPrefab => matchObjectPrefab;
 
         public void AddVisual(GameObject itemModel)
         {
             InitializeMatchID(itemModel);
+            matchObjectPrefab = itemModel;
 
             GameObject visual = Instantiate(itemModel, visualsPivot);
             highlighter.SetupHighlight();

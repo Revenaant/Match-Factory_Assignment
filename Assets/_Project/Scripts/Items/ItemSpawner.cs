@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using Revenaant.Project.Messages;
-using System.Diagnostics;
 
 namespace Revenaant.Project
 {
@@ -17,6 +16,7 @@ namespace Revenaant.Project
         [SerializeField] private Collider newItemsVolume;
 
         private ItemAssetLoader loader;
+        private int totalItems;
 
         private void Awake()
         {
@@ -30,7 +30,7 @@ namespace Revenaant.Project
             List<Task> loadTasks = new List<Task>();
             foreach (string theme in config.SpawnableThemes)
             {
-                loadTasks.Add(loader.LoadItemSets(theme));
+                loadTasks.Add(loader.LoadItemSets(theme))
             }
             await Task.WhenAll(loadTasks);
 
@@ -80,6 +80,7 @@ namespace Revenaant.Project
             Vector3 position = GetRandomPositionInVolume(volume);
             VisualMatcher spawnedItem = Instantiate(baseItemPrefab, position, Quaternion.identity, transform);
             spawnedItem.AddVisual(visual);
+            totalItems++;
         }
 
         private Vector3 GetRandomPositionInVolume(Collider volume)
@@ -95,12 +96,11 @@ namespace Revenaant.Project
 
         private void ProcessItemsSwipedMessage(ref ItemsSwipedMessage eventData)
         {
-            SpawnMultipliedObjects();
-        }
-
-        private void SpawnMultipliedObjects()
-        {
-            //SpawnSceneObject(, newItemsVolume);
+            foreach (GameObject prefab in eventData.ItemPrefabs)
+            {
+                for (int i = 0; i < config.MatchTarget + 1; i++)
+                    SpawnSceneObject(prefab, newItemsVolume);
+            }
         }
     }
 }

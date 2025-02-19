@@ -11,6 +11,7 @@ namespace Revenaant.Project
     public class GoalManager : MonoBehaviour
     {
         [SerializeField] private LevelConfig config;
+        [SerializeField] private int destructionLives = 3;
 
         [SerializeField] private CountdownTimer countdownTimer;
         [SerializeField] private LevelLostWindow levelLostWindow;
@@ -45,15 +46,15 @@ namespace Revenaant.Project
             CentralMessageBus.Instance.UnsubscribeFrom<GameWonMessage>(ProcessGameWonMessage);
         }
 
+        private void OnTimerFinished()
+        {
+            CentralMessageBus.Instance.Raise(new GameOverMessage(GameOverType.OutOfTime));
+        }
+
         private void ProcessItemsSpawnedMessage(ref ItemsSpawnedMessage eventData)
         {
             countdownTimer.Restart();
             display.CallForAttention();
-        }
-
-        private void OnTimerFinished()
-        {
-            CentralMessageBus.Instance.Raise(new GameOverMessage(GameOverType.OutOfTime));
         }
 
         private void ProcessMatchMadeMessage(ref MatchMadeMessage eventData)
